@@ -34,7 +34,7 @@ namespace BookStoreWithSwagger.API
             services.AddDbContext<BookStoreDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSwaggerGen();
-            services.AddScoped<IRegistration, Registration>();
+            services.AddScoped<IAuthorService, AuthorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -23,7 +23,7 @@ namespace BookStore.Data
         {
             modelBuilder.Entity<Book>().HasKey(e => e.Id);
             modelBuilder.Entity<Book>().HasMany(e => e.StoreBooks).WithOne(e => e.Book).HasForeignKey(e => e.BookId);
-            modelBuilder.Entity<Book>().HasOne(e => e.Author).WithMany(e => e.Books).HasForeignKey(e => e.AuthorId);
+            modelBuilder.Entity<Book>().HasOne(e => e.Author).WithMany(e => e.Books).HasForeignKey(e => e.AuthorId).OnDelete(DeleteBehavior.ClientCascade);
             modelBuilder.Entity<Store>().HasKey(e => e.Id);
             modelBuilder.Entity<Store>().HasMany(e => e.StoreBooks).WithOne(e => e.Store).HasForeignKey(e => e.StoreId);
             modelBuilder.Entity<StoreBook>().HasKey(e => new { e.StoreId, e.BookId });
